@@ -187,8 +187,11 @@ def dms_to_decimal(dms:schema.DMS):
 @app.post("/locations")
 def receive_location(data: schema.Location, db: Session = Depends(get_db)):
     student = db.query(model.Student).filter_by(id=data.ID).first()
+    teacher = None
     if not student:
-        raise HTTPException(status_code=404, detail=f"Student with ID {data.ID} not found, so the location didn't save")
+       teacher = db.query(model.Teacher).filter_by(id=data.ID).first()
+    if not student and not teacher:
+        raise HTTPException(status_code=404, detail=f"Student or teacher with ID {data.ID} not found, so the location didn't save")
     try:
         lati = dms_to_decimal(data.Coordinates.Latitude)
         longi = dms_to_decimal(data.Coordinates.Longitude)
@@ -237,5 +240,21 @@ def get_latest_locations(teacher_id: str = None, db: Session = Depends(get_db)):
             "longitude": loc.longitude,
             "time": loc.time
         }
-    
-    return list(unique_locations.values())
+    final_locations = list(unique_locations.values())    
+    if teacher_id:
+       
+        teacher_loc = db.query(model.Location).filter(
+            model.Location.student_id == teacher_id).order_by(model.Location.time.desc()).first()
+
+        if teacher_loc:
+            teacher_data = {
+                "student_id": teacher_id,
+                "latitude": teacher_loc.latitude,
+                "longitude": teacher_loc.longitude,
+                "time": teacher_loc.time
+            }
+            final_locations.insert(0, teacher_data)
+          
+
+    return final_locations
+
