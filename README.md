@@ -1,7 +1,7 @@
 **Trip  System**
 
 
-**Overview**
+## **Overview**
 
 
 The system was developed as a solution for managing the school's annual trip.
@@ -10,7 +10,7 @@ The system was developed as a solution for managing the school's annual trip.
 It is designed to allow teachers to have full control over student data and continuous safety monitoring.
 
 
-**Key Features**
+## **Key Features**
 
 
 _Registration and management:_ Separate registration for teachers and students.
@@ -32,7 +32,7 @@ _Map:_ Displaying the last location of each student on an interactive map that u
 
 
 
-**User interface (UI/UX)**
+## **User interface (UI/UX)**
 
 
 The system was designed in a modern and clean style with an emphasis on ease of use:
@@ -47,7 +47,7 @@ _Right navigation:_ All pages of the system have a fixed navigation bar on the r
 _Customized display:_ The interface changes depending on the type of user (teacher or student) and displays only the relevant actions.
 
 
-**Technologies**
+## **Technologies**
 
 
 
@@ -62,7 +62,7 @@ _Customized display:_ The interface changes depending on the type of user (teach
 **Frontend:** HTML5, CSS3, JavaScript
 
 
-**Installation and Setup**
+## **Installation and Setup**
 
 
 _Prerequisites:_ Install Python 3.8+.
@@ -87,7 +87,7 @@ _Launch steps:_
 
 
 
-**Project Assumptions**
+## **Project Assumptions**
 
 
 _Security:_ The system simulates permissions based on the browser's memory.
