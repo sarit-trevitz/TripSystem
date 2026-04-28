@@ -29,7 +29,7 @@ _Launch steps:_
 
 **Project Assumptions**
 _Security:_ The system simulates permissions based on the browser's memory
-_Conversion to coordinates:_ The system performs a mathematical conversion of the DMS format (for display on the map
+_Conversion to coordinates:_ The system performs a mathematical conversion of the DMS format 
 _Update frequency:_ The map is updated against the server every 30 seconds to ensure accuracy without overloading the resources.
 
 
