@@ -83,14 +83,17 @@ _Conversion to coordinates:_ The system performs a mathematical conversion of th
 _Update frequency:_ The map is updated against the server every 30 seconds to ensure accuracy without overloading the resources.
 
 
-**Screenshots**
-![home image](https://github.com/sarit-trevitz/TripSystem/blob/main/images/home.png)
 
-![login image](https://github.com/sarit-trevitz/TripSystem/blob/main/images/login.png)
+## **Screenshots**
 
-![teacher screen image](https://github.com/sarit-trevitz/TripSystem/blob/main/images/teacherScreen.png)
+### **Home Page**
+![Home Page](images/home.png)
 
-![map image](https://github.com/sarit-trevitz/TripSystem/blob/main/images/map.png)
+### **Login Page**
+![Login Page](images/login.png)
 
+### **Teacher Dashboard**
+![Teacher Dashboard](images/teacherScreen.png)
 
-
+### **Live Student Map**
+![Live Map](images/map.png)
