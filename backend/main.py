@@ -37,6 +37,9 @@ def create_teacher(teacher: schema.Teacher, db: Session = Depends(get_db)):
          raise HTTPException(status_code=400, detail="This ID belong to a teacher who already exists")
         if db.query(model.Student).filter_by(id=teacher.id).first():
          raise HTTPException(status_code=400, detail="This ID belong to a student so it cannot be used for a teacher")
+        existing_class = db.query(model.Teacher).filter_by(class_name=teacher.class_name).first()
+        if existing_class:
+            raise HTTPException(status_code=400, detail=f"The class '{teacher.class_name}' is already taken by another teacher")
         new_teacher = model.Teacher(id=teacher.id, full_name=teacher.full_name, class_name=teacher.class_name)
         db.add(new_teacher)
         db.commit()
@@ -51,6 +54,9 @@ def create_student(student: schema.Student, db: Session = Depends(get_db)):
          raise HTTPException(status_code=400, detail="This ID belong to a student who already exists")
         if db.query(model.Teacher).filter_by(id=student.id).first():
          raise HTTPException(status_code=400, detail="This ID belong to a teacher so it cannot be used for a student")
+        class_exists = db.query(model.Teacher).filter_by(class_name=student.class_name).first()
+        if not class_exists:
+          raise HTTPException(status_code=400, detail=f"Class '{student.class_name}' does not exist. A teacher must be assigned to this class first.")
         new_student = model.Student(id=student.id, full_name=student.full_name, class_name=student.class_name)
         db.add(new_student)
         db.commit()
