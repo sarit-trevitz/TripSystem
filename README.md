@@ -74,17 +74,25 @@ _Launch steps:_
 1. _Extract the project:_ Extract the solution ZIP file.
 
 
-
-2. _Install libraries:_ pip install fastapi uvicorn sqlalchemy.
-
+2. _Virtual Environment:_-
 
 
-3. _Launch:_ uvicorn main:app --reload.
+ Create a virtual environment: python -m venv venv
 
 
+ Activate the environment: venv\Scripts\activate
 
-4. _Access:_ Go to http://127.0.0.1:8000.
 
+3. _Install libraries:_ pip install fastapi uvicorn sqlalchemy.
+
+
+4. _Navigate to backend:_ cd backend
+
+
+5. _Launch:_ uvicorn main:app --reload.
+
+
+6. _Access:_ Go to http://127.0.0.1:8000.
 
 
 ## **Project Assumptions**

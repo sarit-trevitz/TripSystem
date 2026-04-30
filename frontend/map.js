@@ -42,7 +42,7 @@ async function loadStudentLocations() {
             loc.longitude,
           );
           if (distance > 3) {
-            popupContent = `<b style="color:red;">WARNING: Student ${loc.student_id} is too far!</b>`;
+            popupContent = `<b style="color:red;">WARNING: Student ${loc.student_id} is far away!</b>`;
           } else {
             popupContent = `<b>Student ID:</b> ${loc.student_id}`;
           }
@@ -56,8 +56,10 @@ async function loadStudentLocations() {
     console.error("Error loading locations:", error);
   }
 }
+
+// Calculate the air distance between two points using the Haversine formula
 function calculateAirDistance(lat1, lon1, lat2, lon2) {
-  const R = 6371; 
+  const R = 6371; // Earth's radius in kilometers
   const dLat = (lat2 - lat1) * (Math.PI / 180);
   const dLon = (lon2 - lon1) * (Math.PI / 180);
   const a =
@@ -67,6 +69,7 @@ function calculateAirDistance(lat1, lon1, lat2, lon2) {
       Math.sin(dLon / 2) *
       Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  //return the distance in kilometers
   return R * c;
 }
 loadStudentLocations();

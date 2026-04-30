@@ -22,11 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const addStudentBtn = document.getElementById("addStudentBtn");
   const addStudentPopup = document.getElementById("addStudentPopup");
   const closeAddStudent = document.getElementById("closeAddStudent");
-
+ // when the user click it seen
   if (addStudentBtn && addStudentPopup) {
     addStudentBtn.onclick = function () {
       addStudentPopup.style.display = "block";
     };
+     //close when click in the X
     if (closeAddStudent)
       closeAddStudent.onclick = function () {
         addStudentPopup.style.display = "none";
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // The login button
   const loginBtn = document.querySelector(".actionbtn.enterbtn");
-  if (loginBtn && loginBtn.innerText.includes("LOGIN")) {
+  if (loginBtn && loginBtn.innerText.includes("Login")) {
     loginBtn.onclick = async (event) => {
       event.preventDefault();
 
@@ -170,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
           container.innerHTML = "<p>Loading data...</p>";
 
           try {
-            //the teacher id fir the table of just her student
+            //the teacher id if the table of just her student
             const response = await fetch(
               `/get_table_data?type=${choice}&teacher_id=${data.id}`,
             );

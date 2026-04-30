@@ -21,7 +21,6 @@ app.mount("/frontend", StaticFiles(directory=frontend_path), name="frontend")
 @app.get("/")
 def read_root_home():
     return FileResponse(os.path.join(frontend_path, "index.html"))
-    #return {"message": "Trip System API is running!"}  
 
 # Helper function for managing the database connection: opens a connection and closes it when the operation is complete
 def get_db():
